@@ -248,12 +248,6 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
         if (spellChecker != null) {
             final TextServicesManager tsm = (TextServicesManager) getSystemService(
                     Context.TEXT_SERVICES_MANAGER_SERVICE);
-            if (tsm.isSpellCheckerEnabled()) {
-                final SpellCheckerInfo sci = tsm.getCurrentSpellChecker();
-                // CurrentSpellChecker can be null for reasons such as invalid user
-                if (sci != null) {
-                    spellChecker.setSummary(sci.loadLabel(getPackageManager()));
-                }
             } else {
                 spellChecker.setSummary(R.string.switch_off_text);
             }
